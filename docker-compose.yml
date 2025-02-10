@@ -1,0 +1,15 @@
+services:
+
+  postgres:
+    image: 'postgres:14.2'
+    ports:
+      - "5432:5432"
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: xxxxxxxx
+      POSTGRES_DB: actix-todo
+    volumes:
+      - ./db-data/postgres/:/var/lib/postgres/data/
